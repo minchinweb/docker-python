@@ -1,4 +1,4 @@
-# Personal Base Container
+# Personal Python Base Container
 
 This is my personal base container for Docker, now with Python! Maybe you'll
 find it helpful too...
