@@ -45,7 +45,10 @@ RUN \
     rm -rf /var/lib/apt/lists/*
 
 # store Python Version; used for image tagging
-RUN export PYTHON_VERSION=$(python -c "import platform; print(platform.python_version())")
+# ARG needs to be declared here, and above any FROM line
+# https://github.com/moby/moby/issues/37345#issuecomment-400245466
+ARG PYTHON_VERSION
+ENV PYTHON_VERSION=${PYTHON_VERSION}
 
 WORKDIR /app
 

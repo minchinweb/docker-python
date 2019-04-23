@@ -6,8 +6,8 @@
 
 echo "[***] Post_Push hook running"
 
-# export PYTHON_VERSION_X_Y_Z=$(docker run --rm $IMAGE_NAME sh -c 'echo $PYTHON_VERSION')
-export PYTHON_VERSION_X_Y_Z=$(docker run --rm $IMAGE_NAME python -c "import platform; print(platform.python_version())")
+# get Python version from image's environmental variables, without running it
+export PYTHON_VERSION_X_Y_Z=$(docker inspect -f '{{range $index, $value := .Config.Env}}{{$value}} {{end}}' local/python | grep -oP 'PYTHON_VERSION=\K\d+(.\d+(.\d+\w*)?)?')
 export PYTHON_VERSION_X_Y=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1-2 -d .)
 export PYTHON_VERSION_X=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1 -d .)
 echo "     Version: $PYTHON_VERSION_X  $PYTHON_VERSION_X_Y  $PYTHON_VERSION_X_Y_Z  $SOURCE_COMMIT"
