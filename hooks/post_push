@@ -10,7 +10,7 @@ echo "[***] Post_Push hook running"
 export PYTHON_VERSION_X_Y_Z=$(docker inspect -f '{{range $index, $value := .Config.Env}}{{$value}} {{end}}' $IMAGE_NAME | grep -oP 'PYTHON_VERSION=\K\d+(.\d+(.\d+\w*)?)?')
 export PYTHON_VERSION_X_Y=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1-2 -d .)
 export PYTHON_VERSION_X=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1 -d .)
-echo "     Version: $PYTHON_VERSION_X  $PYTHON_VERSION_X_Y  $PYTHON_VERSION_X_Y_Z  $SOURCE_COMMIT"
+echo "     Versions: $PYTHON_VERSION_X  $PYTHON_VERSION_X_Y  $PYTHON_VERSION_X_Y_Z  $SOURCE_COMMIT"
 
 docker tag $IMAGE_NAME $DOCKER_REPO:$PYTHON_VERSION_X_Y_Z
 docker push $DOCKER_REPO:$PYTHON_VERSION_X_Y_Z

@@ -62,6 +62,9 @@ tweaks were needed.
 - add various tags as per [label-schema.org](http://label-schema.org/rc1/)
 - the locale is set (by my base image) to Canadian English
 - `pip` doesn't cache downloaded packages
+- images are tagged with the major Python version, major+minor Python version,
+  Major+Minor+patch Python version (so "3", "3.7", and "3.7.3", as
+  appropriate), plus the commit id.
 
 ## Prior Art
 
@@ -72,6 +75,5 @@ image](https://hub.docker.com/_/python).
 
 ## Known Issues
 
-- Currently, only the tagging on Docker Hub isn't as complete as I'd like.
 - additional `apt` packages may be needed to support building C extensions with
   `pip` or to allow pre-compiled wheels to work.
