@@ -1,6 +1,6 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.7.4
+ARG PYTHON_VERSION=2.7.16
 ARG UBUNTU_VERSION=bionic
 
 FROM python:${PYTHON_VERSION}-stretch as python-builder
