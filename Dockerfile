@@ -44,6 +44,8 @@ RUN \
     echo "[*] cleanup from apt" && \
     rm -rf /var/lib/apt/lists/*
 
+RUN python -m pip install pip --update
+
 # store Python Version; used for image tagging
 # ARG needs to be declared here, and above any FROM line
 # https://github.com/moby/moby/issues/37345#issuecomment-400245466
