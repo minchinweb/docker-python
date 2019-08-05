@@ -44,7 +44,8 @@ RUN \
     echo "[*] cleanup from apt" && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python -m pip install pip --update
+RUN python -m pip --version
+RUN python -m pip install pip --upgrade
 
 # store Python Version; used for image tagging
 # ARG needs to be declared here, and above any FROM line
