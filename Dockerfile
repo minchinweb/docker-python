@@ -1,9 +1,9 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.7.4
+ARG PYTHON_VERSION=3.8.2
 ARG UBUNTU_VERSION=bionic
 
-FROM python:${PYTHON_VERSION}-stretch as python-builder
+FROM python:${PYTHON_VERSION}-buster as python-builder
 
 FROM minchinweb/base:${UBUNTU_VERSION}
 
