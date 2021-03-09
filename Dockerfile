@@ -1,6 +1,6 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.8.2
+ARG PYTHON_VERSION=3.9.2
 ARG UBUNTU_VERSION=focal
 
 FROM python:${PYTHON_VERSION}-buster as python-builder
