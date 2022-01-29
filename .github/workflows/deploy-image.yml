@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  # IMAGE_NAME: ${{ github.repository }}
+  REPOSITORY: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
@@ -24,8 +24,8 @@ jobs:
     steps:
       - name: Set Environmental Variables
         run: |
-          echo Repository: $(github.repository)
-          export IMAGE_NAME=${ github.repository#docker }
+          echo Repository: $(env.REPOSITORY)
+          export IMAGE_NAME=${env.REPOSITORY#docker}
           echo Image Name: $(env.IMAGE_NAME)
 
       - name: Checkout repository
