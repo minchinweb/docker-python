@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Set Environmental Variables
         run: |
-          echo Repository: ${{ github.repository }}
+          echo Repository: $({{ github.repository }})
           export IMAGE_NAME=${{{ github.repository}}#docker }
           echo Image Name: ${{ env.IMAGE_NAME }}
 
