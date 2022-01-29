@@ -24,9 +24,9 @@ jobs:
     steps:
       - name: Set Environmental Variables
         run: |
-          echo Repository: $(env.REPOSITORY)
-          export IMAGE_NAME=${env.REPOSITORY#docker}
-          echo Image Name: $(env.IMAGE_NAME)
+          echo Repository: $REPOSITORY
+          export IMAGE_NAME=${REPOSITORY#docker-}
+          echo Image Name: $IMAGE_NAME
 
       - name: Checkout repository
         uses: actions/checkout@v2
