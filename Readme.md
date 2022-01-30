@@ -3,12 +3,9 @@
 This is my personal base container for Docker, now with Python! Maybe you'll
 find it helpful too...
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/minchinweb/python.svg?style=popout)](https://hub.docker.com/r/minchinweb/python)
-[![Size & Layers](https://images.microbadger.com/badges/image/minchinweb/python.svg)](https://microbadger.com/images/minchinweb/python)
 [![GitHub issues](https://img.shields.io/github/issues-raw/minchinweb/docker-python.svg?style=popout)](https://github.com/MinchinWeb/docker-python/issues)
 <!--
-![MicroBadger Layers](https://img.shields.io/microbadger/layers/layers/minchinweb/python.svg?style=plastic)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/image-size/minchinweb/python.svg?style=plastic)
+[![Docker Pulls](https://img.shields.io/docker/pulls/minchinweb/python.svg?style=popout)](https://hub.docker.com/r/minchinweb/python)
 -->
 
 ## How to Use This
@@ -17,7 +14,7 @@ The container will probably not be used directly, but rather as a for building
 other (Docker) containers on. To do that, specify this as your base image (in
 your `Dockerfile`):
 
-    FROM minchinweb/python
+    FROM ghcr.io/minchinweb/python
 
     # ... and the rest
 
