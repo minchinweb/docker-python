@@ -5,7 +5,7 @@ ARG UBUNTU_VERSION=focal
 
 FROM python:${PYTHON_VERSION}-buster as python-builder
 
-FROM minchinweb/base:${UBUNTU_VERSION}
+FROM ghcr.io/minchinweb/base:${UBUNTU_VERSION}
 
 # keep apt happy
 ARG DEBIAN_FRONTEND=noninteractive
