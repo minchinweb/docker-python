@@ -41,6 +41,14 @@ jobs:
           echo Build Date: $BUILD_DATE
           echo "BUILD_DATE=${BUILD_DATE}" >> $GITHUB_ENV
 
+          export PYTHON_VERSION_X_Y_Z=$(cat Dockerfile | grep -oP 'PYTHON_VERSION=\K\d+(.\d+(.\d+\w*)?)?')
+          export PYTHON_VERSION_X_Y=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1-2 -d .)
+          export PYTHON_VERSION_X=$(echo $PYTHON_VERSION_X_Y_Z | cut -f 1 -d .)
+          echo Python Versions: ${PYTHON_VERSION_X} ${PYTHON_VERSION_X_Y} ${PYTHON_VERSION_X_Y_Z}
+          echo "PYTHON_VERSION_X_Y_Z=${PYTHON_VERSION_X_Y_Z}" >> $GITHUB_ENV
+          echo "PYTHON_VERSION_X_Y=${PYTHON_VERSION_X_Y}" >> $GITHUB_ENV
+          echo "PYTHON_VERSION_X=${PYTHON_VERSION_X}" >> $GITHUB_ENV
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -73,5 +81,9 @@ jobs:
             BRANCH=${{ github.ref_name }}
             BUILD_DATE=${{ env.BUILD_DATE }}
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ steps.meta.outputs.tags }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.PYTHON_VERSION_X_Y_Z }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.PYTHON_VERSION_X_Y }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.PYTHON_VERSION_X }}
           labels: ${{ steps.meta.outputs.labels }}
