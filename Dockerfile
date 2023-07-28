@@ -1,9 +1,9 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.9.10
+ARG PYTHON_VERSION=3.11.4
 ARG UBUNTU_VERSION=jammy
 
-FROM python:${PYTHON_VERSION}-buster as python-builder
+FROM python:${PYTHON_VERSION}-bookworm as python-builder
 
 FROM ghcr.io/minchinweb/base:${UBUNTU_VERSION}
 
@@ -38,6 +38,7 @@ RUN \
     apt -qq update && \
     echo "[*] apt isntall" && \
     apt -qq install -y \
+            libc6 \
             # needed for pip
             libexpat1 \
     && \
