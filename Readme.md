@@ -74,3 +74,6 @@ image](https://hub.docker.com/_/python).
 
 - additional `apt` packages may be needed to support building C extensions with
   `pip` or to allow pre-compiled wheels to work.
+- if you use this as a base image, you will need to set `ENV S6_KEEP_ENV=1` in
+  your `Dockerfile` if you want your default script to have access to your
+  environmental variables.
