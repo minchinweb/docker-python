@@ -18,7 +18,7 @@ your `Dockerfile`):
 
     # ... and the rest
 
-**This packages Python 3.9.**
+**This packages Python 3.11.**
 
 You also probably want to set the UID and GID (*User ID* number and *Group ID*
 number). This can be done through the environmental variables `PUID` and `GUID`

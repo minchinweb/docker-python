@@ -36,7 +36,7 @@ RUN ldconfig
 RUN \
     echo "[*] apt update" && \
     apt -qq update && \
-    echo "[*] apt isntall" && \
+    echo "[*] apt install" && \
     apt -qq install -y \
             libc6 \
             # needed for pip
@@ -47,6 +47,7 @@ RUN \
 
 RUN python -m pip --version
 RUN python -m pip install pip --upgrade
+RUN python -m pip install setuptools wheel --upgrade
 
 # store Python Version; used for image tagging
 # ARG needs to be declared here, and above any FROM line
