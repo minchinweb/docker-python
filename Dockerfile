@@ -55,6 +55,9 @@ RUN python -m pip install setuptools wheel --upgrade
 ARG PYTHON_VERSION
 ENV PYTHON_VERSION=${PYTHON_VERSION}
 
+ARG UBUNTU_VERSION
+ENV UBUNTU_VERSION=${UBUNTU_VERSION}
+
 WORKDIR /app
 
 CMD ["python"]
