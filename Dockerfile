@@ -3,7 +3,7 @@
 ARG PYTHON_VERSION=3.12.7
 ARG UBUNTU_VERSION=jammy
 
-FROM python:${PYTHON_VERSION}-bookworm as python-builder
+FROM python:${PYTHON_VERSION}-bookworm AS python-builder
 
 FROM ghcr.io/minchinweb/base:${UBUNTU_VERSION}
 
