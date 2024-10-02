@@ -47,7 +47,7 @@ RUN \
 
 RUN python -m pip --version
 RUN python -m pip install pip --upgrade
-RUN python -m pip install setuptools wheel --upgrade
+RUN python -m pip install setuptools wheel build --upgrade
 
 # store Python Version; used for image tagging
 # ARG needs to be declared here, and above any FROM line
