@@ -1,6 +1,6 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.12.7
+ARG PYTHON_VERSION=3.12.11
 ARG UBUNTU_VERSION=jammy
 
 FROM python:${PYTHON_VERSION}-bookworm AS python-builder
