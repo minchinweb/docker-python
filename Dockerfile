@@ -45,6 +45,14 @@ RUN \
     echo "[*] cleanup from apt" && \
     rm -rf /var/lib/apt/lists/*
 
+# disable checks for `pip` upgrades (we're upgrading anyway)
+ENV PIP_DISABLE_PIP_VERSION_CHECK 1
+# don't write .pyc files
+# https://stackoverflow.com/questions/59732335/is-there-any-disadvantage-in-using-pythondontwritebytecode-in-docker
+ENV PYTHONDONTWRITEBYTECODE 1
+# ensures console output is not buffered by Docker
+ENV PYTHONUNBUFFERED 1
+
 RUN python -m pip --version
 RUN python -m pip install pip --upgrade
 RUN python -m pip install setuptools wheel build --upgrade
