@@ -1,6 +1,6 @@
 # Base Image, now with Python!
 
-ARG PYTHON_VERSION=3.13.9
+ARG PYTHON_VERSION=3.14.0
 ARG UBUNTU_VERSION=noble
 
 FROM python:${PYTHON_VERSION}-trixie AS python-builder
