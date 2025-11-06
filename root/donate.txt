@@ -1,0 +1,2 @@
+- https://minchin.ca
+- https://github.com/minchinweb/docker-python
