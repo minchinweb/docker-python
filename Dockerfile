@@ -41,6 +41,8 @@ RUN \
             libc6 \
             # needed for pip
             libexpat1 \
+            # for pip SSL support
+            libssl-dev \
     && \
     echo "[*] cleanup from apt" && \
     rm -rf /var/lib/apt/lists/*
