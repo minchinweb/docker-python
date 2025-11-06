@@ -3,7 +3,8 @@
 ARG PYTHON_VERSION=3.14.0
 ARG UBUNTU_VERSION=noble
 
-FROM python:${PYTHON_VERSION}-trixie AS python-builder
+FROM python:${PYTHON_VERSION}-bookworm AS python-builder
+# can't bump from bookworm to trixie without breaking SSL (for jammy and noble)
 
 FROM ghcr.io/minchinweb/base:${UBUNTU_VERSION}
 
@@ -41,8 +42,6 @@ RUN \
             libc6 \
             # needed for pip
             libexpat1 \
-            # for pip SSL support
-            libssl-dev \
     && \
     echo "[*] cleanup from apt" && \
     rm -rf /var/lib/apt/lists/*
