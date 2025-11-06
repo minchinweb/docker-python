@@ -1,9 +1,9 @@
 # Base Image, now with Python!
 
 ARG PYTHON_VERSION=3.13.9
-ARG UBUNTU_VERSION=jammy
+ARG UBUNTU_VERSION=noble
 
-FROM python:${PYTHON_VERSION}-bookworm AS python-builder
+FROM python:${PYTHON_VERSION}-trixie AS python-builder
 
 FROM ghcr.io/minchinweb/base:${UBUNTU_VERSION}
 
