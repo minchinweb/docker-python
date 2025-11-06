@@ -46,16 +46,16 @@ RUN \
     rm -rf /var/lib/apt/lists/*
 
 # disable checks for `pip` upgrades (we're upgrading anyway)
-ENV PIP_DISABLE_PIP_VERSION_CHECK 1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 # don't write .pyc files
 # https://stackoverflow.com/questions/59732335/is-there-any-disadvantage-in-using-pythondontwritebytecode-in-docker
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONDONTWRITEBYTECODE=1
 # ensures console output is not buffered by Docker
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 RUN python -m pip --version
-RUN python -m pip install pip --upgrade
-RUN python -m pip install setuptools wheel build --upgrade
+RUN python -m pip install pip --upgrade --root-user-action
+RUN python -m pip install setuptools wheel build --upgrade --root-user-action
 
 # store Python Version; used for image tagging
 # ARG needs to be declared here, and above any FROM line
