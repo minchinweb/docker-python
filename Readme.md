@@ -3,6 +3,7 @@
 This is my personal base container for Docker, now with Python! Maybe you'll
 find it helpful too...
 
+[![Create and publish a Docker image](https://github.com/minchinweb/docker-python/actions/workflows/deploy-image.yml/badge.svg)](https://github.com/minchinweb/docker-python/actions/workflows/deploy-image.yml)
 [![GitHub issues](https://img.shields.io/github/issues-raw/minchinweb/docker-python.svg?style=popout)](https://github.com/MinchinWeb/docker-python/issues)
 <!--
 [![Docker Pulls](https://img.shields.io/docker/pulls/minchinweb/python.svg?style=popout)](https://hub.docker.com/r/minchinweb/python)
@@ -14,11 +15,12 @@ The container will probably not be used directly, but rather as a for building
 other (Docker) containers on. To do that, specify this as your base image (in
 your `Dockerfile`):
 
-    FROM ghcr.io/minchinweb/python
+    FROM ghcr.io/minchinweb/python:3.14
 
     # ... and the rest
 
-**This packages Python 3.12.**
+**This packages Python 3.14.** (There are previous Python versions tagged, but
+the base system is likely not up to date.)
 
 You also probably want to set the UID and GID (*User ID* number and *Group ID*
 number). This can be done through the environmental variables `PUID` and `GUID`
